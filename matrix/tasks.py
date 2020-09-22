@@ -53,3 +53,34 @@ def additional_diagonal(size):
             else:
                 dest_array[row][col] = 2
     return dest_array
+
+
+
+
+def swap_columns (A, i, j):
+    for row in range(len(A)):
+        A[row][i], A[row][j] = A[row][j], A[row][i]
+    return A
+    
+
+def is_symmetrical(A):
+    for row in range(len(A)):
+        for col in range(len(A[row])):
+            if A[row][col] != A[col][row]:
+                return False
+    return True
+
+def matrix_transponantion(n, m, A):
+    result_matrix = [[0 for j in range(n)] for i in range(m)]
+    print(result_matrix)
+    for row in range(len(A)):
+        for col in range(len(A[row])):
+            result_matrix[col][row] = A[row][col]
+    return result_matrix
+
+
+def swap_diagonals(A, N):
+    for row in range(len(A)):
+        for col in range(len(A[row])):
+            if row == col:
+                A[row][col], A[N - row - 1][row] = A[N - row -1][row], A[row][col]
